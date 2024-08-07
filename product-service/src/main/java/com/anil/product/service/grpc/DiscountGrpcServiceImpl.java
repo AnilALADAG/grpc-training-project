@@ -15,8 +15,10 @@ public class DiscountGrpcServiceImpl implements DiscountGrpcService {
     private ManagedChannel channel;
 
     public DiscountGrpcServiceImpl(@Value("${discount.grpc.host}") String grpcHost, @Value("${discount.grpc.port}") int grpcPort) {
-        System.out.println("--> Discount grpc grpcHost: " + grpcHost + ", grpcPort: " + grpcPort);
-        channel = ManagedChannelBuilder.forAddress(grpcHost, grpcPort).usePlaintext().build();
+        System.out.println("--> Discount grpc: " + grpcHost + " " + grpcPort);
+        channel = ManagedChannelBuilder.forAddress(grpcHost, grpcPort)
+                .usePlaintext()
+                .build();
     }
 
     @Override
